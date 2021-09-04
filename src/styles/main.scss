@@ -1,0 +1,177 @@
+@import "variables.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $color-grey;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+.search-bar {
+  &__container {
+    background-color: $color-yellow;
+    color: $color-black;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__box {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__box-input-search {
+    display: flex;
+    width: 85%;
+  }
+  &__input {
+    border: none;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    font-size: 1.8rem;
+    height: 4rem;
+    border-radius: 4px;
+    color: $color-black;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__button {
+    border: none;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  &__img {
+    &--logo {
+      width: 7rem;
+    }
+    &--lens {
+      width: 1.8rem;
+    }
+  }
+}
+
+.body {
+  &__container {
+    background-color: $color-white;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto 2rem auto;
+    font-size: 1.8rem;
+    :last-child .Box-item__vl {
+      display: none;
+    }
+  }
+}
+
+.Box-item {
+  &__container {
+    padding: $gutter-vertical-small;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    &--detail {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 70%;
+    }
+  }
+  &__image {
+    width: 180px;
+    height: 180px;
+    border-radius: 4px;
+    background-color: black; //mientras
+    margin-right: $gutter-vertical-small;
+  }
+  &__price {
+    font-size: 2.4rem;
+    margin-bottom: $gutter-vertical-big;
+    width: 50%;
+    font-weight: bold;
+  }
+  &__detail {
+    font-size: 1.8rem;
+  }
+  &__location {
+    font-size: 1.2rem;
+    width: 50%;
+    text-align: end;
+  }
+  &__vl {
+    width: 100%;
+    height: 2px;
+    background-color: $color-grey;
+    margin: $gutter-vertical-small auto 0px auto;
+  }
+}
+
+.breadcrumb {
+  &__container {
+    color: $color-grey-dark;
+    font-size: 1.4rem;
+    width: 80%;
+    margin: $gutter-vertical-small auto;
+  }
+}
+
+.detail-item {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: $color-black;
+    &--detail {
+    }
+  }
+  &__img {
+    width: 68rem;
+  }
+  &__sub-title {
+    font-size: 1.4rem;
+    margin: $gutter-vertical-big 0 $gutter-vertical-small 0;
+  }
+  &__title {
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+  &__price {
+    font-size: 4.6rem;
+    font-weight: bold;
+    margin: $gutter-vertical-big 0 $gutter-vertical-big 0;
+  }
+  &__button-buy {
+    background-color: $color-blue;
+    color: $color-white;
+    border-radius: 4px;
+    padding: 1rem;
+    border: none;
+    margin-right: $gutter-vertical-big;
+    width: 18rem;
+    cursor: pointer;
+  }
+  &__description-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: $color-black;
+    width: 100%;
+    margin: $gutter-vertical-big;
+  }
+  &__description {
+    font-size: 1.6rem;
+    color: $color-grey-medium;
+    width: 100%;
+    margin: 0 $gutter-vertical-big $gutter-vertical-big $gutter-vertical-big;
+  }
+}
