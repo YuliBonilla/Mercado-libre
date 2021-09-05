@@ -22,7 +22,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
-          options: { presets: ["env", "@babel/preset-react"] },
+          options: { presets: ["@babel/preset-react"] },
         },
       },
       {

@@ -6,10 +6,10 @@ function BoxItem(props) {
     <div className="Box-item__container">
       <img className="Box-item__image" src={ImgLogo} alt="item" />
       <div className="Box-item__container--detail">
-        <div className="Box-item__price">$ 1.980</div>
-        <div className="Box-item__location">Capital Federal</div>
+        <div className="Box-item__price">{props.price}</div>
+        <div className="Box-item__location">{props.location}</div>
         <div className="Box-item__detail">
-          Apple Ipod Touch 5g 16gb Negro Igual A Nuevo completo Unico
+          {props.name}
         </div>
       </div>
       <div className="Box-item__vl"></div>
