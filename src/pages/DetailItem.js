@@ -1,39 +1,34 @@
-import React from "react";
-import ImgLogo from "../images/Logo_mercado_libre.png";
+import React, { useEffect, useState } from "react";
+import queryString from "query-string"
 
 function DetailItem(props) {
+  const [data, setData] = useState({ title: "", price: { amount: "" }, description: "", picture: [{ url: "" }] })
+  console.log("props", props)
+
+  useEffect(() => {
+    const parsed = queryString.parse(props.location.search);
+    fetch(
+      "http://localhost:3000/api/detailItem?id=" + parsed.q
+    )
+      .then((response) => response.json())
+      .then((dataJson) => {
+        console.log("dataJson", dataJson)
+        setData(dataJson.data.data.item)
+      })
+  }, [])
+
   return (
     <div className="detail-item__container">
-      <img className="detail-item__img" src={ImgLogo} alt="img" />
+      <img className="detail-item__img" src={data.picture[0].url} alt="img" />
       <div className="detail-item__container--detail">
-        <div className="detail-item__sub-title">Nuevo - 234 vendidos</div>
-        <div className="detail-item__title">Deco Reverse Sombrero Oxford</div>
-        <div className="detail-item__price">$ 1.980</div>
+        <div className="detail-item__sub-title">{data.title}</div>
+        <div className="detail-item__title">{data.title}</div>
+        <div className="detail-item__price">{data.price.amount}</div>
         <button className="detail-item__button-buy">Comprar</button>
       </div>
       <div className="detail-item__description-title">Descrcipcion del producto</div>
       <div className="detail-item__description">
-        Una prueba viral analiza muestras de su nariz o su boca para detectar
-        una infección actual por el el virus que causa el COVID-19. Las pruebas
-        virales se pueden realizar en un laboratorio, en un centro de pruebas o
-        en casa o en cualquier otro lugar. Se utilizan dos tipos de pruebas
-        virales: pruebas de amplificación de ácido nucleico (NAAT) y pruebas de
-        antígeno. Una prueba viral analiza muestras de su nariz o su boca para
-        detectar una infección actual por el el virus que causa el COVID-19. Las
-        pruebas virales se pueden realizar en un laboratorio, en un centro de
-        pruebas o en casa o en cualquier otro lugar. Se utilizan dos tipos de
-        pruebas virales: pruebas de amplificación de ácido nucleico (NAAT) y
-        pruebas de antígeno. Una prueba viral analiza muestras de su nariz o su
-        boca para detectar una infección actual por el el virus que causa el
-        COVID-19. Las pruebas virales se pueden realizar en un laboratorio, en
-        un centro de pruebas o en casa o en cualquier otro lugar. Se utilizan
-        dos tipos de pruebas virales: pruebas de amplificación de ácido nucleico
-        (NAAT) y pruebas de antígeno. Una prueba viral analiza muestras de su
-        nariz o su boca para detectar una infección actual por el el virus que
-        causa el COVID-19. Las pruebas virales se pueden realizar en un
-        laboratorio, en un centro de pruebas o en casa o en cualquier otro
-        lugar. Se utilizan dos tipos de pruebas virales: pruebas de
-        amplificación de ácido nucleico (NAAT) y pruebas de antígeno.
+        {data.description}
       </div>
     </div>
   );

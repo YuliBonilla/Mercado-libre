@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
-import BreadCrumb from "./components/BreadCrumb";
-import Main from "./router/Main";
+import Main from "./router/Navigation";
 
 function App() {
+  const [data, setData] = useState([])
   return (
     <Router>
-      <SearchBar />
-      <BreadCrumb />
+      <SearchBar searchItem={searchItem} />
       <div className="body__container">
-        <Main />
+        <Main data={data} />
       </div>
     </Router>
   );

@@ -1,24 +1,13 @@
 import React from "react";
-import BoxItem from "../components/BoxItem";
+import SearchBar from "../components/SearchBar";
+import ContentNavigation from "../router/ContentNavigation"
 
-function Home() {
-
-  function getItemsProducts() {
-    fetch(
-      "http://localhost:3000/?q=pantalon"
-    )
-      .then((response) => response.json())
-      .then((dataJson) => {
-        let data = dataJson.items.map((item) => {
-          return <BoxItem price={item.amount} location="" name={item.title} dataItem={item}/>
-        })
-        return data
-      })
-  }
+function Home(props) {
 
   return (
     <React.Fragment>
-      {getItemsProducts()}
+      <SearchBar />
+      <ContentNavigation />
     </React.Fragment>
   );
 }
