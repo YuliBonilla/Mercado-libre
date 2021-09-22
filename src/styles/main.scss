@@ -97,9 +97,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
+    @media only screen and (max-width: 75rem) {
+      & {
+        justify-content: center;
+      } 
+    }
     &--detail {
       width: 70%;
       margin-top: $gutter-vertical-small;
+      @media only screen and (max-width: 75rem) {
+        & {
+          width: 100%;
+        } 
+      }
     }
     &--price {
       display: flex;
