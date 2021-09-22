@@ -6,7 +6,7 @@ import Len from "../images/lens.png";
 function SearchBar(props) {
   let history = useHistory();
   const [inputValue, setInputValue] = useState("")
-  console.log("prueba", props.location)
+  
   function searchOnEnter(e) {
     if (e.keyCode === "Enter" || e.which == 13) history.push("/items?q=" + inputValue)
   }
@@ -18,6 +18,7 @@ function SearchBar(props) {
           className="search-bar__img--logo"
           src={ImgLogo}
           alt="Logo_mercado_libre"
+          onClick={() => history.push('/home')}
         />
         <div className="search-bar__box-input-search">
           <input

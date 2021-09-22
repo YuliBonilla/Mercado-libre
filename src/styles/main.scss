@@ -70,6 +70,7 @@ body {
   &__img {
     &--logo {
       width: 7rem;
+      cursor: pointer;
     }
     &--lens {
       width: 1.8rem;
@@ -97,10 +98,14 @@ body {
     flex-wrap: wrap;
     cursor: pointer;
     &--detail {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       width: 70%;
+      margin-top: $gutter-vertical-small;
+    }
+    &--price {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: $gutter-vertical-big;
     }
   }
   &__image {
@@ -112,7 +117,6 @@ body {
   }
   &__price {
     font-size: 2.4rem;
-    margin-bottom: $gutter-vertical-big;
     width: 50%;
     font-weight: bold;
   }
@@ -138,7 +142,11 @@ body {
     font-size: 1.4rem;
     width: 80%;
     margin: $gutter-vertical-small auto;
+    display: flex;
   }
+  &__separator:last-child {
+      display: none;
+    }
 }
 
 .detail-item {
@@ -147,11 +155,17 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     color: $color-black;
+    background-color: $color-white;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto 2rem auto;
     &--detail {
     }
   }
   &__img {
     width: 68rem;
+    max-height: 68rem;
+    margin-top: $gutter-vertical-big;
   }
   &__sub-title {
     font-size: 1.4rem;

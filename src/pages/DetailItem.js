@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import queryString from "query-string"
 
+//No se encontro como obtener del servicio de detalle la data para el breadcrumb
 function DetailItem(props) {
   const [data, setData] = useState({ title: "", price: { amount: "" }, description: "", picture: [{ url: "" }] })
-  console.log("props", props)
 
   useEffect(() => {
     const parsed = queryString.parse(props.location.search);
@@ -12,7 +12,6 @@ function DetailItem(props) {
     )
       .then((response) => response.json())
       .then((dataJson) => {
-        console.log("dataJson", dataJson)
         setData(dataJson.data.data.item)
       })
   }, [])
@@ -23,10 +22,10 @@ function DetailItem(props) {
       <div className="detail-item__container--detail">
         <div className="detail-item__sub-title">{data.title}</div>
         <div className="detail-item__title">{data.title}</div>
-        <div className="detail-item__price">{data.price.amount}</div>
+        <div className="detail-item__price">${data.price.amount}</div>
         <button className="detail-item__button-buy">Comprar</button>
       </div>
-      <div className="detail-item__description-title">Descrcipcion del producto</div>
+      <div className="detail-item__description-title">Descripción del producto</div>
       <div className="detail-item__description">
         {data.description}
       </div>
