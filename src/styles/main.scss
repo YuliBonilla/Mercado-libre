@@ -158,8 +158,14 @@ body {
     background-color: $color-white;
     border-radius: 5px;
     width: 80%;
-    margin: 0 auto 2rem auto;
+    margin: $gutter-vertical-big auto 2rem auto;
+    &--img-price {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+    }
     &--detail {
+      margin-top: $gutter-vertical-big;
     }
   }
   &__img {
