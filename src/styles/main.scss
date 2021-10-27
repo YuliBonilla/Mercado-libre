@@ -97,18 +97,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
-    @media only screen and (max-width: 75rem) {
-      & {
-        justify-content: center;
-      } 
+    @media only screen and (max-width: 1000px) {
+      justify-content: center;
     }
     &--detail {
       width: 70%;
       margin-top: $gutter-vertical-small;
-      @media only screen and (max-width: 75rem) {
-        & {
-          width: 100%;
-        } 
+      @media only screen and (max-width: 1000px) {
+        width: 100%;
       }
     }
     &--price {
@@ -155,8 +151,8 @@ body {
     display: flex;
   }
   &__separator:last-child {
-      display: none;
-    }
+    display: none;
+  }
 }
 
 .detail-item {
@@ -172,17 +168,28 @@ body {
     &--img-price {
       width: 90%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
     }
     &--detail {
       margin-top: $gutter-vertical-big;
       margin-left: $gutter-vertical-big;
+      @media only screen and (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+      }
     }
   }
   &__img {
-    width: 68rem;
+    width: 20rem;
     max-height: 68rem;
     margin-top: $gutter-vertical-big;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
   }
   &__sub-title {
     font-size: 1.4rem;
@@ -203,7 +210,6 @@ body {
     border-radius: 4px;
     padding: 1rem;
     border: none;
-    margin-right: $gutter-vertical-big;
     width: 18rem;
     cursor: pointer;
   }
